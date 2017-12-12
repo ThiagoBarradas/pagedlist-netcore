@@ -290,5 +290,5 @@ Please, refer to [CONTRIBUTING](CONTRIBUTING.md)
 Open a new Issue following our issue template [ISSUE-TEMPLATE](ISSUE-TEMPLATE.md)
 
 # Changelog
-See in [nuget version history](https://www.nuget.org/packages/UAUtil)
+See in [nuget version history](https://www.nuget.org/packages/PagedList.NetCore)
 
