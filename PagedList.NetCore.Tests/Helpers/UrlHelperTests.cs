@@ -150,9 +150,9 @@ namespace PagedList.NetCore.Tests.Helpers
             NameValueCollection collection = UrlHelper.ParseQueryString(urlToConvert);
 
             // assert
-            Assert.Equal(collection.Count, 2);
-            Assert.Equal(collection.Get("param"), "value");
-            Assert.Equal(collection.Get("param2"), "value2");
+            Assert.Equal(2, collection.Count);
+            Assert.Equal("value", collection.Get("param"));
+            Assert.Equal("value2", collection.Get("param2"));
         }
 
         [Fact]
@@ -165,9 +165,9 @@ namespace PagedList.NetCore.Tests.Helpers
             NameValueCollection collection = UrlHelper.ParseQueryString(urlToConvert);
 
             // assert
-            Assert.Equal(collection.Count, 2);
-            Assert.Equal(collection.Get("param"), "value");
-            Assert.Equal(collection.Get("param2"), "value2");
+            Assert.Equal(2, collection.Count);
+            Assert.Equal("value", collection.Get("param"));
+            Assert.Equal("value2", collection.Get("param2"));
         }
 
         [Fact]
@@ -182,8 +182,8 @@ namespace PagedList.NetCore.Tests.Helpers
             NameValueCollection collection2 = UrlHelper.ParseQueryString(urlToConvert2);
 
             // assert
-            Assert.Equal(collection1.Count, 0);
-            Assert.Equal(collection2.Count, 0);
+            Assert.Empty(collection1);
+            Assert.Empty(collection2);
         }
 
         [Fact]
@@ -211,7 +211,7 @@ namespace PagedList.NetCore.Tests.Helpers
             string result = UrlHelper.ToQueryString(collection);
 
             // assert
-            Assert.Equal(result, "param=value&param2=value2");
+            Assert.Equal("param=value&param2=value2", result);
         }
     }
 }

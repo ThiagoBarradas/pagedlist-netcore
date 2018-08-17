@@ -1,4 +1,5 @@
 ﻿using PagedList.Models;
+using PagedList.NetCore.Builders;
 using Xunit;
 
 namespace PagedList.NetCore.Tests.Models
@@ -13,7 +14,7 @@ namespace PagedList.NetCore.Tests.Models
             string urlreturn = "http://www.google.com?pageNumber=3";
 
             // act
-            PageLink link = new PageLink(url, 3);
+            PageLink link = PageLinkBuilder.Build(url, 3);
 
             // assert
             Assert.Equal(urlreturn, link.Url);
@@ -27,7 +28,7 @@ namespace PagedList.NetCore.Tests.Models
             string urlreturn = "http://www.google.com/xxx?test=123&pageNumber=3";
 
             // act
-            PageLink link = new PageLink(url, 3);
+            PageLink link = PageLinkBuilder.Build(url, 3);
 
             // assert
             Assert.Equal(urlreturn, link.Url);
@@ -41,7 +42,7 @@ namespace PagedList.NetCore.Tests.Models
             string urlreturn = "?test=123&pageNumber=3";
 
             // act
-            PageLink link = new PageLink(url, 3);
+            PageLink link = PageLinkBuilder.Build(url, 3);
 
             // assert
             Assert.Equal(urlreturn, link.Url);

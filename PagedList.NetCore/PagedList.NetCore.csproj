@@ -1,14 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <TargetFramework>netstandard2.0</TargetFramework>
     <Authors>Thiago Barradas</Authors>
-    <Company>Elephee</Company>
+    <Company>Thiago Barradas</Company>
     <Product>PagedList NetCore</Product>
-    <Description>A simple paged list for dotnet core applications</Description>
+    <Description>A simple paged list for dotnet applications</Description>
     <RepositoryUrl>https://github.com/thiagobarradas/pagedlist-netcore</RepositoryUrl>
-    <PackageIconUrl>http://www.elephee.com/images/elephee-icon.png</PackageIconUrl>
-    <PackageTags>paged list pagination net dotnet core paging api</PackageTags>
+    <PackageIconUrl></PackageIconUrl>
+    <PackageTags>paged list pagination net dotnet core standard paging api mvc library</PackageTags>
+	<ApplicationIcon />
+	<OutputType>Library</OutputType>
+    <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>

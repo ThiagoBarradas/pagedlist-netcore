@@ -38,15 +38,15 @@ namespace PagedList.NetCore.Tests
             int itemCount = 347;
 
             // act
-            PagedList pagedList = new PagedList(url, itemCount);
+            PagedList pagedList = new PagedList(url, itemCount, 1, 10);
 
             // assert
             Assert.NotNull(pagedList.Options);
             Assert.NotNull(pagedList.Navigator);
             Assert.Null(pagedList.Navigator.NavigatorSize);
             Assert.Null(pagedList.Navigator.Numerics);
-            Assert.Equal(pagedList.Options.PageNumber, 1);
-            Assert.Equal(pagedList.Options.PageSize, 10);
+            Assert.Equal(1, pagedList.Options.PageNumber);
+            Assert.Equal(10, pagedList.Options.PageSize);
         }
 
         [Fact]
@@ -63,7 +63,7 @@ namespace PagedList.NetCore.Tests
 
             // assert
             Assert.NotNull(pagedList.Options);
-            Assert.Equal(pagedList.Options.PageCount, 35);
+            Assert.Equal(35, pagedList.Options.PageCount);
             Assert.Equal(pagedList.Options.PageNumber, pageNumber);
             Assert.Equal(pagedList.Options.PageSize, pageSize);
         }
@@ -82,8 +82,8 @@ namespace PagedList.NetCore.Tests
 
             // assert
             Assert.NotNull(pagedList.Navigator);
-            Assert.Equal(pagedList.Navigator.NavigatorSize, 6);
-            Assert.Equal(pagedList.Navigator.Numerics.Count, 6);
+            Assert.Equal(6, pagedList.Navigator.NavigatorSize);
+            Assert.Equal(6, pagedList.Navigator.Numerics.Count);
             Assert.Equal(pagedList.Navigator.Numerics[2].Number, pageNumber);
         }
 

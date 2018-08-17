@@ -2,17 +2,8 @@
 {
     public class PageLink
     {
-        public PageLink(string url, int pageNumber)
-        {
-            this.Number = pageNumber;
+        public string Url { get; set; }
 
-            url += (url.Contains("?")) ? "&" : "?" ;
-
-            this.Url = url + "pageNumber=" + pageNumber.ToString();
-        }
-
-        public string Url { get; private set; }
-
-        public int Number { get; private set; }
+        public int Number { get; set; }
     }
 }

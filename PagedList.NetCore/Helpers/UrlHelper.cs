@@ -1,11 +1,28 @@
 ﻿using System;
 using System.Collections.Specialized;
 using System.Text.RegularExpressions;
+using System.Runtime.CompilerServices;
 
+[assembly: InternalsVisibleTo("PagedList.NetCore.Tests")]
 namespace PagedList.Helpers
 {
-    public static class UrlHelper
+    internal static class UrlHelper
     {
+        public static string GetUrlBaseToPagingWithoutPagingParams(string url, int pageSize)
+        {
+            string[] parameters = { "pageNumber", "pageSize" };
+            url = UrlHelper.RemoveParameterFromQueryString(url, parameters);
+
+            if (!url.Contains("?"))
+                url += "?";
+            else if (url.Contains("?") && url.IndexOf("?") == (url.Length - 1))
+                url += "";
+            else
+                url += "&";
+
+            return url + "pageSize=" + pageSize.ToString();
+        }
+
         public static string GetUrlWithoutQueryString(string url)
         {
             if(!(url.Contains("?") || url.Contains("&"))) 

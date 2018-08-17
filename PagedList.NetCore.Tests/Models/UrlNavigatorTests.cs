@@ -1,8 +1,9 @@
 ﻿using PagedList.Models;
+using PagedList.NetCore.Builders;
 using System.Collections.Generic;
 using Xunit;
 
-namespace PagedList.Tests.Models
+namespace PagedList.NetCore.Tests.Models
 {
     public class UrlNavigatorTests
     {
@@ -12,11 +13,11 @@ namespace PagedList.Tests.Models
         public void UrlNavigator_Construct_FirstPage()
         {
             // arrange / act
-            UrlNavigator nav = new UrlNavigator(url, 4, 10, null);
+            UrlNavigator nav = UrlNavigatorBuilder.Build(url, 4, 10, null);
             PageLink page = nav.First;
 
             // assert
-            Assert.Equal(page.Number, 1);
+            Assert.Equal(1, page.Number);
             Assert.Equal(page.Url, url+"?pageNumber=1");
         }
 
@@ -24,11 +25,11 @@ namespace PagedList.Tests.Models
         public void UrlNavigator_Construct_PreviousPage()
         {
             // arrange / act
-            UrlNavigator nav = new UrlNavigator(url, 4, 10, null);
+            UrlNavigator nav = UrlNavigatorBuilder.Build(url, 4, 10, null);
             PageLink page = nav.Previous;
 
             // assert
-            Assert.Equal(page.Number, 3);
+            Assert.Equal(3, page.Number);
             Assert.Equal(page.Url, url + "?pageNumber=3");
         }
 
@@ -36,11 +37,11 @@ namespace PagedList.Tests.Models
         public void UrlNavigator_Construct_NextPage()
         {
             // arrange / act
-            UrlNavigator nav = new UrlNavigator(url, 4, 10, null);
+            UrlNavigator nav = UrlNavigatorBuilder.Build(url, 4, 10, null);
             PageLink page = nav.Next;
 
             // assert
-            Assert.Equal(page.Number, 5);
+            Assert.Equal(5, page.Number);
             Assert.Equal(page.Url, url + "?pageNumber=5");
         }
 
@@ -48,11 +49,11 @@ namespace PagedList.Tests.Models
         public void UrlNavigator_Construct_LastPage()
         {
             // arrange / act
-            UrlNavigator nav = new UrlNavigator(url, 4, 10, null);
+            UrlNavigator nav = UrlNavigatorBuilder.Build(url, 4, 10, null);
             PageLink page = nav.Last;
 
             // assert
-            Assert.Equal(page.Number, 10);
+            Assert.Equal(10, page.Number);
             Assert.Equal(page.Url, url + "?pageNumber=10");
         }
 
@@ -60,9 +61,9 @@ namespace PagedList.Tests.Models
         public void UrlNavigator_Construct_InvalidNavigatorSize()
         {
             // arrange / act
-            UrlNavigator nav1 = new UrlNavigator(url, 4, 10, null);
-            UrlNavigator nav2 = new UrlNavigator(url, 4, 10, 0);
-            UrlNavigator nav3 = new UrlNavigator(url, 4, 10, -2);
+            UrlNavigator nav1 = UrlNavigatorBuilder.Build(url, 4, 10, null);
+            UrlNavigator nav2 = UrlNavigatorBuilder.Build(url, 4, 10, 0);
+            UrlNavigator nav3 = UrlNavigatorBuilder.Build(url, 4, 10, -2);
 
             // assert
             Assert.Null(nav1.NavigatorSize);
@@ -77,24 +78,24 @@ namespace PagedList.Tests.Models
         public void UrlNavigator_Construct_NavigatorSizeBiggerThenPageCount()
         {
             // arrange / act
-            UrlNavigator nav = new UrlNavigator(url, 4, 8, 10);
+            UrlNavigator nav = UrlNavigatorBuilder.Build(url, 4, 8, 10);
             
             // assert
-            Assert.Equal(nav.NavigatorSize, 10);
-            Assert.Equal(nav.Numerics.Count, 8);            
+            Assert.Equal(10, nav.NavigatorSize);
+            Assert.Equal(8, nav.Numerics.Count);
         }
 
         [Fact]
         public void UrlNavigator_Construct_NumericPages()
         {
             // arrange / act
-            UrlNavigator nav = new UrlNavigator(url, 37, 300, 10);
+            UrlNavigator nav = UrlNavigatorBuilder.Build(url, 37, 300, 10);
             List<PageLink> numPages = nav.Numerics;
 
             // assert
-            Assert.Equal(nav.NavigatorSize, 10);
-            Assert.Equal(nav.Numerics.Count, 10);
-            Assert.Equal(numPages[9].Number, 42);
+            Assert.Equal(10, nav.NavigatorSize);
+            Assert.Equal(10, nav.Numerics.Count);
+            Assert.Equal(42, numPages[9].Number);
         }
     }
 }
