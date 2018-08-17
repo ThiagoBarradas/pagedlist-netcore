@@ -2,9 +2,9 @@
 using PagedList.NetCore.Builders;
 using Xunit;
 
-namespace PagedList.NetCore.Tests.Models
+namespace PagedList.NetCore.Tests.Builders
 {
-    public class PageOptionsTests
+    public class PageOptionsBuilderTests
     {
         [Fact]
         public void PageOptions_Construct_Defaults()

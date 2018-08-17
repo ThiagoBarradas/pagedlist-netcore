@@ -2,9 +2,9 @@
 using PagedList.NetCore.Builders;
 using Xunit;
 
-namespace PagedList.NetCore.Tests.Models
+namespace PagedList.NetCore.Tests.Builders
 {
-    public class PageLinkTests
+    public class PageLinkBuilderTests
     {
         [Fact]
         public void PageLink_Constructor_GenerateURLWithBaseUrl()

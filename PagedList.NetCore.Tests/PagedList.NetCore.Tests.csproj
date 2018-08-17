@@ -16,8 +16,4 @@
     <ProjectReference Include="..\PagedList.NetCore\PagedList.NetCore.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Models\" />
-  </ItemGroup>
-
 </Project>

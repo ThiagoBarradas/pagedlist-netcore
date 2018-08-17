@@ -3,9 +3,9 @@ using PagedList.NetCore.Builders;
 using System.Collections.Generic;
 using Xunit;
 
-namespace PagedList.NetCore.Tests.Models
+namespace PagedList.NetCore.Tests.Builders
 {
-    public class UrlNavigatorTests
+    public class UrlNavigatorBuilderTests
     {
         private string url = "http://www.myapp.com/";
 

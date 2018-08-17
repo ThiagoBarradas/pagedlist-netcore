@@ -216,7 +216,7 @@ namespace PagedList.NetCore.Tests
             int navigatorSize = 6;
 
             // act
-            PagedList pagedList = new PagedList(url, itemCount, pageNumber, pageSize, navigatorSize);
+            PagedList pagedList = new PagedList(url + "?", itemCount, pageNumber, pageSize, navigatorSize);
 
             // assert
             Assert.Null(pagedList.Navigator.Last);
@@ -334,6 +334,17 @@ namespace PagedList.NetCore.Tests
             string jsonExpected = "{\"options\":{\"pageNumber\":1,\"pageSize\":10,\"itemCount\":0,\"pageCount\":0},\"navigator\":{\"navigatorSize\":3,\"first\":null,\"previous\":null,\"next\":null,\"last\":null,\"numerics\":null}}";
             string json = JsonConvert.SerializeObject(pagedList, jsonSerializer);
             Assert.Equal(json, jsonExpected);
+        }
+
+        [Fact]
+        public void PagedList_With_Empty_Constructor()
+        {
+            // act
+            PagedList pagedList = new PagedList();
+
+            // assert
+            Assert.Null(pagedList.Navigator);
+            Assert.Null(pagedList.Options);
         }
     }
 }

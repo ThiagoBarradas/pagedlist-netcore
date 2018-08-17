@@ -15,7 +15,7 @@ namespace PagedList.Helpers
 
             if (!url.Contains("?"))
                 url += "?";
-            else if (url.Contains("?") && url.IndexOf("?") == (url.Length - 1))
+            else if (url.Contains("?") && url.LastIndexOf("?") == (url.Length - 1))
                 url += "";
             else
                 url += "&";

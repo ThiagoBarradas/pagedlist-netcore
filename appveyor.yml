@@ -32,7 +32,7 @@ after_test:
   - dotnet pack --configuration Release /p:Version=%version%
 
 artifacts:
-  - path: PagedList.NetCore\bin\Release\netcoreapp2.0\PagedList.NetCore.dll
+  - path: PagedList.NetCore\bin\Release\netstandard2.0\PagedList.NetCore.dll
     name: PagedList.NetCore.dll
   - path: PagedList.NetCore\bin\Release\PagedList.NetCore.%version%.nupkg
     name: PagedList.NetCore.%version%.nupkg
