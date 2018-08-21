@@ -11,7 +11,7 @@ namespace PagedList.NetCore.Tests.Helpers
         public void UrlHelper_GetUrlWithoutQueryString_UrlWithQueryString()
         {
             // arrange
-            string urlWithQueryString = "http://www.google.com/test?param=value";
+            string urlWithQueryString = "http://www.google.com/test?param1=&param=value";
             string urlWithoutQueryString = "http://www.google.com/test";
 
             // act
@@ -99,8 +99,8 @@ namespace PagedList.NetCore.Tests.Helpers
         public void UrlHelper_RemoveParameterFromQueryString_NotExistingParameter()
         {
             // arrange
-            string urlWithParameter = "http://www.google.com/test?param=value&param2=value";
-            string urlWithoutParameter = "http://www.google.com/test?param=value&param2=value";
+            string urlWithParameter = "http://www.google.com/test?param=value&param2=value&param4";
+            string urlWithoutParameter = "http://www.google.com/test?param=value&param2=value&param4=";
             string[] parameters = { "param3" };
 
             // act
